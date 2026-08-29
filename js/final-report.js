@@ -778,6 +778,8 @@ function updateSummary(
     toDate = ""
 ) {
 
+    // INSTALLMENT
+    // Keep this for Pending calculation
     const totalInstallment =
         calculateInstallment(
             fromDate,
@@ -785,6 +787,7 @@ function updateSummary(
         );
 
 
+    // COLLECTION
     const totalCollection =
         calculateCollection(
             fromDate,
@@ -792,6 +795,7 @@ function updateSummary(
         );
 
 
+    // COMMISSION
     const totalCommission =
         calculateCommission(
             fromDate,
@@ -799,6 +803,7 @@ function updateSummary(
         );
 
 
+    // EXPENSE
     const totalExpense =
         calculateExpense(
             fromDate,
@@ -806,6 +811,7 @@ function updateSummary(
         );
 
 
+    // PENDING INSTALLMENT
     const pending =
         calculatePending(
             fromDate,
@@ -814,57 +820,58 @@ function updateSummary(
 
 
     // CASH IN HAND
-
     const cashInHand =
-    totalCollection +
-    totalCommission -
-    totalExpense -
-    pending;
+        totalCollection +
+        totalCommission -
+        totalExpense -
+        pending;
 
 
     // FINAL TOTAL
-
     const finalTotal =
         cashInHand +
         pending;
 
 
-    displayMoney(
-        "installment",
-        totalInstallment
-    );
+    // ❌ Total Installment display removed
 
 
+    // TOTAL COLLECTION
     displayMoney(
         "collection",
         totalCollection
     );
 
 
+    // TOTAL COMMISSION
     displayMoney(
         "commission",
         totalCommission
     );
 
 
+    // TOTAL EXPENSE
     displayMoney(
         "expense",
         totalExpense
     );
 
 
+    // PENDING INSTALLMENT
     displayMoney(
         "pending",
         pending
     );
 
 
+    // CASH IN HAND
     displayMoney(
         "cash",
         cashInHand
     );
 
 
+    // FINAL TOTAL
     displayMoney(
         "finalTotal",
         finalTotal
