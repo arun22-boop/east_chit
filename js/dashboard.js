@@ -440,12 +440,13 @@ function updateDashboard() {
     // -----------------------------------------------
     // CASH IN HAND
     //
-    // Collection + Commission - Expense
+    // Collection + Commission - Expense - Pending Amount
     // -----------------------------------------------
 
     const cashInHand =
         totalCollection +
         totalCommission -
+        pendingAmount -
         totalExpense;
 
 
