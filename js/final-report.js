@@ -818,7 +818,8 @@ function updateSummary(
     const cashInHand =
     totalCollection +
     totalCommission -
-    totalExpense;
+    totalExpense -
+    pending;
 
 
     // FINAL TOTAL
