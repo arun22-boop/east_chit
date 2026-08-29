@@ -1,0 +1,21 @@
+{
+  "name": "chit---account-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "firebase-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "http-server . -p 5500",
+    "start": "http-server . -p 5500"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "firebase": "^12.17.1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

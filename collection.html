@@ -1,0 +1,840 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Collection Management - PKV EAST CHIT"
+    >
+
+    <meta
+        name="theme-color"
+        content="#212529"
+    >
+
+    <title>Collection - PKV EAST CHIT</title>
+
+
+    <!-- =====================================================
+         MAIN CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- =====================================================
+         MENU CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/menu.css"
+    >
+
+    
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         COMMON MENU
+    ====================================================== -->
+
+    <div id="appMenu"></div>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="app-content">
+
+        <div class="page-container">
+
+
+            <!-- =================================================
+                 PAGE TITLE
+            ================================================== -->
+
+            <h2 class="page-title">
+
+                💰 Collection Management
+
+            </h2>
+
+
+            <!-- =================================================
+                 COLLECTION FORM
+            ================================================== -->
+
+            <section class="collection-card">
+
+
+                <!-- ERROR -->
+
+                <div
+                    id="collectionError"
+                    class="error-box"
+                ></div>
+
+
+                <!-- SUCCESS -->
+
+                <div
+                    id="collectionSuccess"
+                    class="success-box"
+                ></div>
+
+
+                <div class="collection-form-grid">
+
+
+                    <!-- =================================================
+                         1. MEMBER
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="memberSelect"
+                            class="form-label"
+                        >
+
+                            Select Member
+
+                        </label>
+
+
+                        <select
+                            id="memberSelect"
+                            class="form-select"
+                        >
+
+                            <option value="">
+
+                                Select Member
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         2. INSTALLMENT AMOUNT
+                         TAKEN FROM FIRESTORE INSTALLMENTS
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="installmentAmount"
+                            class="form-label"
+                        >
+
+                            Installment Amount
+
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="installmentAmount"
+                            class="form-control installment-box"
+                            value="0"
+                            readonly
+                        >
+
+
+                        <div
+                            id="installmentInfo"
+                            class="installment-info"
+                        >
+
+                            Select member to load installment
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         3. COLLECTION AMOUNT
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="collectionAmount"
+                            class="form-label"
+                        >
+
+                            Collection Amount
+
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="collectionAmount"
+                            class="form-control"
+                            min="0"
+                            step="0.01"
+                            placeholder="Enter Collection Amount"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <!-- =================================================
+                         4. REMAINING AMOUNT
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="remainingAmount"
+                            class="form-label"
+                        >
+
+                            After Collection Remaining Amount
+
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="remainingAmount"
+                            class="form-control remaining-box"
+                            value="0"
+                            readonly
+                        >
+
+
+                        <div
+                            id="remainingInfo"
+                            class="installment-info"
+                        >
+
+                            ₹0.00 Pending
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         5. PAYMENT MODE
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="paymentMode"
+                            class="form-label"
+                        >
+
+                            Payment Mode
+
+                        </label>
+
+
+                        <select
+                            id="paymentMode"
+                            class="form-select"
+                        >
+
+                            <option value="Cash">
+
+                                Cash
+
+                            </option>
+
+                            <option value="UPI">
+
+                                UPI
+
+                            </option>
+
+                            <option value="Bank">
+
+                                Bank
+
+                            </option>
+
+                            <option value="Other">
+
+                                Other
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         6. DATE
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="collectionDate"
+                            class="form-label"
+                        >
+
+                            Collection Date
+
+                        </label>
+
+
+                        <input
+                            type="date"
+                            id="collectionDate"
+                            class="form-control"
+                        >
+
+                    </div>
+
+
+                    <!-- =================================================
+                         7. REMARKS
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="remarks"
+                            class="form-label"
+                        >
+
+                            Remarks
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="remarks"
+                            class="form-control"
+                            placeholder="Optional remarks"
+                            maxlength="250"
+                        >
+
+                    </div>
+
+
+                    <!-- =================================================
+                         BUTTONS
+                    ================================================== -->
+
+                    <div
+                        class="form-group"
+                        style="grid-column:1/-1;"
+                    >
+
+                        <label class="form-label">
+
+                            Action
+
+                        </label>
+
+
+                        <div class="button-row">
+
+
+                            <!-- SAVE -->
+
+                            <button
+                                type="button"
+                                id="saveCollectionBtn"
+                                class="btn btn-success"
+                            >
+
+                                💾 Save Collection
+
+                            </button>
+
+
+                            <!-- UPDATE -->
+
+                            <button
+                                type="button"
+                                id="updateCollectionBtn"
+                                class="btn btn-primary"
+                                style="display:none;"
+                            >
+
+                                ✏️ Update Collection
+
+                            </button>
+
+
+                            <!-- CANCEL -->
+
+                            <button
+                                type="button"
+                                id="cancelCollectionBtn"
+                                class="btn btn-secondary"
+                                style="display:none;"
+                            >
+
+                                ❌ Cancel
+
+                            </button>
+
+
+                            <!-- CLEAR -->
+
+                            <button
+                                type="button"
+                                id="clearCollectionBtn"
+                                class="btn btn-dark"
+                            >
+
+                                🔄 Clear
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 9. COLLECTION SUMMARY
+            ================================================== -->
+
+            <section class="summary-card">
+
+                <div class="summary-grid">
+
+
+                    <!-- TOTAL COLLECTION -->
+
+                    <div class="summary-item">
+
+                        <span class="summary-label">
+
+                            Total Collections
+
+                        </span>
+
+                        <strong
+                            id="totalCollections"
+                            class="summary-value"
+                        >
+
+                            ₹0.00
+
+                        </strong>
+
+                    </div>
+
+
+                    <!-- TODAY -->
+
+                    <div class="summary-item">
+
+                        <span class="summary-label">
+
+                            Today Collection
+
+                        </span>
+
+                        <strong
+                            id="todayCollection"
+                            class="summary-value"
+                        >
+
+                            ₹0.00
+
+                        </strong>
+
+                    </div>
+
+
+                    <!-- CASH -->
+
+                    <div class="summary-item">
+
+                        <span class="summary-label">
+
+                            Cash Collection
+
+                        </span>
+
+                        <strong
+                            id="cashCollection"
+                            class="summary-value"
+                        >
+
+                            ₹0.00
+
+                        </strong>
+
+                    </div>
+
+
+                    <!-- ONLINE -->
+
+                    <div class="summary-item">
+
+                        <span class="summary-label">
+
+                            UPI / Bank
+
+                        </span>
+
+                        <strong
+                            id="onlineCollection"
+                            class="summary-value"
+                        >
+
+                            ₹0.00
+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 10. COLLECTION HISTORY
+            ================================================== -->
+
+            <section class="history-card">
+
+
+                <div class="history-header">
+
+                    <h5>
+
+                        📋 Collection History
+
+                    </h5>
+
+                </div>
+
+
+                <div class="table-responsive">
+
+                    <table class="collection-table">
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    #
+                                </th>
+
+                                <th>
+                                    Member
+                                </th>
+
+                                <th>
+                                    Group
+                                </th>
+
+                                <th>
+                                    Installment
+                                </th>
+
+                                <th>
+                                    Collection
+                                </th>
+
+                                <th>
+                                    Remaining
+                                </th>
+
+                                <th>
+                                    Mode
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Remarks
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="collectionList">
+
+                            <tr>
+
+                                <td
+                                    colspan="10"
+                                    class="empty-message"
+                                >
+
+                                    Loading Collections...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 11. BACK DASHBOARD
+            ================================================== -->
+
+            <a
+                href="dashboard.html"
+                class="btn btn-dark"
+                style="margin-top:15px;"
+            >
+
+                ⬅️ Back Dashboard
+
+            </a>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         MENU JS
+    ====================================================== -->
+
+    <script src="js/menu.js"></script>
+
+
+    <!-- =====================================================
+         COLLECTION JS
+    ====================================================== -->
+
+    <script
+        type="module"
+        src="js/collection.js"
+    ></script>
+
+
+    <!-- =====================================================
+         BASIC HTML EVENT FALLBACK
+    ====================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const collectionAmount =
+                    document.getElementById(
+                        "collectionAmount"
+                    );
+
+                const installmentAmount =
+                    document.getElementById(
+                        "installmentAmount"
+                    );
+
+                const remainingAmount =
+                    document.getElementById(
+                        "remainingAmount"
+                    );
+
+                const remainingInfo =
+                    document.getElementById(
+                        "remainingInfo"
+                    );
+
+
+                function calculateRemaining() {
+
+                    if (
+                        !installmentAmount ||
+                        !collectionAmount ||
+                        !remainingAmount
+                    ) {
+                        return;
+                    }
+
+
+                    const installment =
+                        Number(
+                            installmentAmount.value
+                        ) || 0;
+
+
+                    const collection =
+                        Number(
+                            collectionAmount.value
+                        ) || 0;
+
+
+                    const remaining =
+                        Math.max(
+                            installment -
+                            collection,
+                            0
+                        );
+
+
+                    remainingAmount.value =
+                        remaining.toFixed(2);
+
+
+                    if (remainingInfo) {
+
+                        if (remaining <= 0) {
+
+                            remainingInfo.textContent =
+                                "✅ Installment Fully Paid";
+
+                            remainingAmount.classList
+                                .remove("pending");
+
+                            remainingAmount.classList
+                                .add("paid");
+
+                        }
+
+                        else {
+
+                            remainingInfo.textContent =
+                                "⚠️ ₹" +
+                                remaining.toLocaleString(
+                                    "en-IN",
+                                    {
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2
+                                    }
+                                ) +
+                                " Pending";
+
+                            remainingAmount.classList
+                                .remove("paid");
+
+                            remainingAmount.classList
+                                .add("pending");
+
+                        }
+
+                    }
+
+                }
+
+
+                if (collectionAmount) {
+
+                    collectionAmount.addEventListener(
+                        "input",
+                        calculateRemaining
+                    );
+
+                }
+
+
+                if (installmentAmount) {
+
+                    installmentAmount.addEventListener(
+                        "input",
+                        calculateRemaining
+                    );
+
+                }
+
+
+                /* =================================================
+                   TODAY DATE
+                ================================================== */
+
+                const dateInput =
+                    document.getElementById(
+                        "collectionDate"
+                    );
+
+
+                if (
+                    dateInput &&
+                    !dateInput.value
+                ) {
+
+                    const today =
+                        new Date();
+
+
+                    const year =
+                        today.getFullYear();
+
+
+                    const month =
+                        String(
+                            today.getMonth() + 1
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+
+                    const day =
+                        String(
+                            today.getDate()
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+
+                    dateInput.value =
+                        `${year}-${month}-${day}`;
+
+                }
+
+            }
+
+        );
+
+    </script>
+
+
+</body>
+
+</html>

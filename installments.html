@@ -1,0 +1,1792 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Installment Payment Management - PKV EAST CHIT"
+    >
+
+    <meta
+        name="theme-color"
+        content="#212529"
+    >
+
+    <title>Installment Payment - PKV EAST CHIT</title>
+
+
+    <!-- =====================================================
+         MAIN CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- =====================================================
+         MENU CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/menu.css"
+    >
+
+
+    <!-- =====================================================
+         PAGE CSS
+    ====================================================== -->
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ====================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+
+            width: 100%;
+            min-height: 100%;
+
+            margin: 0;
+            padding: 0;
+
+            overflow-x: hidden;
+
+        }
+
+
+        body {
+
+            background: #f5f6f8;
+
+            color: #212529;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+        }
+
+
+        button,
+        input,
+        select {
+
+            font-family: inherit;
+
+        }
+
+
+        /* =====================================================
+           MAIN CONTENT
+        ====================================================== */
+
+        .app-content {
+
+            width: calc(100% - 230px);
+
+            min-height: 100vh;
+
+            margin-left: 230px;
+
+            padding:
+                15px
+                18px
+                30px
+                18px;
+
+        }
+
+
+        /* =====================================================
+           PAGE CONTAINER
+        ====================================================== */
+
+        .page-container {
+
+            width: 100%;
+
+            max-width: none;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+        /* =====================================================
+           ERROR
+        ====================================================== */
+
+        #dashboardError {
+
+            display: none;
+
+            width: 100%;
+
+            margin-bottom: 15px;
+
+            padding: 12px 15px;
+
+            background: #f8d7da;
+
+            border: 1px solid #f5c2c7;
+
+            border-radius: 7px;
+
+            color: #842029;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           PAGE TITLE
+        ====================================================== */
+
+        .page-title {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            margin:
+                0
+                0
+                15px
+                0;
+
+            color: #212529;
+
+            text-align: left;
+
+        }
+
+
+        /* =====================================================
+           PAYMENT CARD
+        ====================================================== */
+
+        .payment-card {
+
+            width: 100%;
+
+            background: #ffffff;
+
+            border: none;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 2px 8px rgba(
+                    0,
+                    0,
+                    0,
+                    0.07
+                );
+
+            padding: 18px;
+
+        }
+
+
+        /* =====================================================
+           FORM TITLE
+        ====================================================== */
+
+        .form-title {
+
+            font-size: 19px;
+
+            font-weight: 700;
+
+            margin:
+                0
+                0
+                15px
+                0;
+
+            color: #212529;
+
+        }
+
+
+        /* =====================================================
+           FORM GRID
+        ====================================================== */
+
+        .payment-form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(
+                        0,
+                        1fr
+                    )
+                );
+
+            gap: 14px;
+
+            width: 100%;
+
+        }
+
+
+        .form-group {
+
+            width: 100%;
+
+            min-width: 0;
+
+        }
+
+
+        /* =====================================================
+           LABEL
+        ====================================================== */
+
+        .form-label {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            color: #343a40;
+
+        }
+
+
+        /* =====================================================
+           INPUTS
+        ====================================================== */
+
+        .form-control,
+        .form-select {
+
+            display: block;
+
+            width: 100%;
+
+            min-height: 42px;
+
+            padding:
+                8px
+                11px;
+
+            background: #ffffff;
+
+            border:
+                1px solid
+                #ced4da;
+
+            border-radius: 6px;
+
+            outline: none;
+
+            color: #212529;
+
+            font-size: 14px;
+
+            transition:
+                border-color
+                0.15s
+                ease,
+                box-shadow
+                0.15s
+                ease;
+
+        }
+
+
+        .form-control:focus,
+        .form-select:focus {
+
+            border-color: #86b7fe;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    13,
+                    110,
+                    253,
+                    0.12
+                );
+
+        }
+
+
+        .form-control:disabled,
+        .form-control[readonly],
+        .form-select:disabled {
+
+            background: #e9ecef;
+
+            opacity: 1;
+
+            cursor: not-allowed;
+
+        }
+
+
+        .amount-field {
+
+            font-weight: 600;
+
+        }
+
+
+        /* =====================================================
+           TOTAL AMOUNT
+        ====================================================== */
+
+        #totalAmount {
+
+            background: #fff3cd;
+
+            border-color: #ffda6a;
+
+            color: #664d03;
+
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ====================================================== */
+
+        .payment-buttons {
+
+            display: flex;
+
+            gap: 8px;
+
+            width: 100%;
+
+        }
+
+
+        .payment-buttons button {
+
+            min-height: 42px;
+
+            padding:
+                8px
+                14px;
+
+            border: none;
+
+            border-radius: 6px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                opacity
+                0.15s
+                ease,
+                transform
+                0.1s
+                ease;
+
+        }
+
+
+        .payment-buttons button:hover {
+
+            opacity: 0.92;
+
+        }
+
+
+        .payment-buttons button:active {
+
+            transform: scale(0.98);
+
+        }
+
+
+        #savePaymentBtn {
+
+            flex: 1;
+
+            background: #198754;
+
+            color: #ffffff;
+
+        }
+
+
+        #savePaymentBtn:disabled {
+
+            opacity: 0.65;
+
+            cursor: not-allowed;
+
+        }
+
+
+        #cancelEditBtn {
+
+            flex:
+                0 0
+                130px;
+
+            background: #6c757d;
+
+            color: #ffffff;
+
+        }
+
+
+        /* =====================================================
+           SUMMARY
+        ====================================================== */
+
+        .payment-summary {
+
+            width: 100%;
+
+            margin-top: 14px;
+
+            padding: 12px;
+
+            background: #ffffff;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 2px 8px rgba(
+                    0,
+                    0,
+                    0,
+                    0.06
+                );
+
+        }
+
+
+        .summary-row {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(
+                        0,
+                        1fr
+                    )
+                );
+
+            width: 100%;
+
+        }
+
+
+        .summary-box {
+
+            min-width: 0;
+
+            padding:
+                7px
+                12px;
+
+            border-right:
+                1px solid
+                #dee2e6;
+
+            text-align: center;
+
+        }
+
+
+        .summary-box:last-child {
+
+            border-right: none;
+
+        }
+
+
+        .summary-label {
+
+            display: block;
+
+            font-size: 12px;
+
+            color: #6c757d;
+
+            margin-bottom: 2px;
+
+        }
+
+
+        .summary-value {
+
+            display: block;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            color: #212529;
+
+        }
+
+
+        /* =====================================================
+           HISTORY CARD
+        ====================================================== */
+
+        .history-card {
+
+            width: 100%;
+
+            margin-top: 14px;
+
+            background: #ffffff;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 2px 8px rgba(
+                    0,
+                    0,
+                    0,
+                    0.06
+                );
+
+        }
+
+
+        /* =====================================================
+           HISTORY HEADER
+        ====================================================== */
+
+        .history-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding:
+                11px
+                14px;
+
+            background: #212529;
+
+            color: #ffffff;
+
+        }
+
+
+        .history-header h5 {
+
+            margin: 0;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =====================================================
+           TABLE WRAPPER
+        ====================================================== */
+
+        .table-responsive {
+
+            width: 100%;
+
+            overflow-x: auto;
+
+            -webkit-overflow-scrolling: touch;
+
+        }
+
+
+        /* =====================================================
+           TABLE
+        ====================================================== */
+
+        .payment-table {
+
+            width: 100%;
+
+            min-width: 850px;
+
+            margin: 0;
+
+            border-collapse: collapse;
+
+            background: #ffffff;
+
+        }
+
+
+        .payment-table th,
+        .payment-table td {
+
+            padding:
+                9px
+                10px;
+
+            vertical-align: middle;
+
+            white-space: nowrap;
+
+            border:
+                1px solid
+                #dee2e6;
+
+        }
+
+
+        .payment-table th {
+
+            background: #212529;
+
+            color: #ffffff;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            text-align: left;
+
+        }
+
+
+        .payment-table td {
+
+            font-size: 13px;
+
+            color: #212529;
+
+        }
+
+
+        .payment-table tbody tr:hover {
+
+            background: #f8f9fa;
+
+        }
+
+
+        /* =====================================================
+           TABLE NUMBER
+        ====================================================== */
+
+        .payment-table th:first-child,
+        .payment-table td:first-child {
+
+            width: 50px;
+
+            text-align: center;
+
+        }
+
+
+        /* =====================================================
+           ACTION BUTTONS
+        ====================================================== */
+
+        .btn-action {
+
+            display: inline-block;
+
+            min-width: 65px;
+
+            margin-right: 3px;
+
+            padding:
+                5px
+                9px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+        }
+
+
+        .btn-edit {
+
+            background: #0d6efd;
+
+            color: #ffffff;
+
+        }
+
+
+        .btn-delete {
+
+            background: #dc3545;
+
+            color: #ffffff;
+
+        }
+
+
+        .btn-action:hover {
+
+            opacity: 0.88;
+
+        }
+
+
+        /* =====================================================
+           EMPTY MESSAGE
+        ====================================================== */
+
+        .empty-message {
+
+            padding:
+                25px !important;
+
+            text-align: center;
+
+            color: #6c757d;
+
+            background: #ffffff;
+
+        }
+
+
+        /* =====================================================
+           BACK BUTTON
+        ====================================================== */
+
+        .back-button {
+
+            display: inline-block;
+
+            margin-top: 14px;
+
+            margin-bottom: 15px;
+
+            padding:
+                9px
+                15px;
+
+            background: #212529;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            border-radius: 6px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+        }
+
+
+        .back-button:hover {
+
+            background: #343a40;
+
+            color: #ffffff;
+
+        }
+
+
+        /* =====================================================
+           LOADING
+        ====================================================== */
+
+        .loading-row {
+
+            text-align: center;
+
+            padding: 25px;
+
+            color: #6c757d;
+
+        }
+
+
+        /* =====================================================
+           TABLET
+        ====================================================== */
+
+        @media (max-width: 992px) {
+
+            .app-content {
+
+                width:
+                    calc(
+                        100% - 210px
+                    );
+
+                margin-left: 210px;
+
+                padding: 14px;
+
+            }
+
+
+            .payment-form-grid {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(
+                            0,
+                            1fr
+                        )
+                    );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 768px) {
+
+            .app-content {
+
+                width: 100%;
+
+                margin-left: 0;
+
+                padding: 12px;
+
+            }
+
+
+            .page-title {
+
+                justify-content: center;
+
+                font-size: 22px;
+
+                text-align: center;
+
+            }
+
+
+            .payment-form-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 12px;
+
+            }
+
+
+            .payment-card {
+
+                padding: 15px;
+
+            }
+
+
+            .form-group {
+
+                width: 100%;
+
+            }
+
+
+            .payment-buttons {
+
+                flex-direction: column;
+
+            }
+
+
+            #cancelEditBtn {
+
+                flex:
+                    auto;
+
+                width: 100%;
+
+            }
+
+
+            .summary-row {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .summary-box {
+
+                border-right: none;
+
+                border-bottom:
+                    1px solid
+                    #dee2e6;
+
+                padding: 9px;
+
+            }
+
+
+            .summary-box:last-child {
+
+                border-bottom: none;
+
+            }
+
+
+            .history-header {
+
+                padding:
+                    11px
+                    12px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ====================================================== */
+
+        @media (max-width: 576px) {
+
+            .app-content {
+
+                padding: 8px;
+
+            }
+
+
+            .page-title {
+
+                font-size: 20px;
+
+                margin-bottom: 10px;
+
+            }
+
+
+            .payment-card {
+
+                padding: 13px;
+
+                border-radius: 8px;
+
+            }
+
+
+            .form-title {
+
+                font-size: 18px;
+
+            }
+
+
+            .payment-summary {
+
+                padding: 9px;
+
+            }
+
+
+            .summary-value {
+
+                font-size: 16px;
+
+            }
+
+
+            .payment-table th,
+            .payment-table td {
+
+                padding: 8px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         COMMON MENU
+    ====================================================== -->
+
+    <div id="appMenu"></div>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="app-content">
+
+        <div class="page-container">
+
+
+            <!-- =================================================
+                 ERROR
+            ================================================== -->
+
+            <div
+                id="dashboardError"
+                role="alert"
+            ></div>
+
+
+            <!-- =================================================
+                 PAGE TITLE
+            ================================================== -->
+
+            <h2 class="page-title">
+
+                💰 Installment Payment
+
+            </h2>
+
+
+            <!-- =================================================
+                 PAYMENT FORM
+            ================================================== -->
+
+            <section class="payment-card">
+
+                <h4
+                    class="form-title"
+                    id="paymentFormTitle"
+                >
+
+                    ➕ Add Installment
+
+                </h4>
+
+
+                <div class="payment-form-grid">
+
+
+                    <!-- =================================================
+                         MEMBER
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="memberSelect"
+                            class="form-label"
+                        >
+
+                            Select Member
+
+                        </label>
+
+
+                        <select
+                            id="memberSelect"
+                            class="form-select"
+                        >
+
+                            <option value="">
+
+                                Select Member
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         OLD BALANCE
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="oldBalance"
+                            class="form-label"
+                        >
+
+                            Old Balance
+
+                        </label>
+
+
+                        <input
+                            id="oldBalance"
+                            type="number"
+                            class="form-control amount-field"
+                            value="0"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <!-- =================================================
+                         CURRENT PAYMENT
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="paymentAmount"
+                            class="form-label"
+                        >
+
+                            Current Payment
+
+                        </label>
+
+
+                        <input
+                            id="paymentAmount"
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            class="form-control amount-field"
+                            placeholder="Enter Payment Amount"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <!-- =================================================
+                         TOTAL AMOUNT
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="totalAmount"
+                            class="form-label"
+                        >
+
+                            Total Amount
+
+                        </label>
+
+
+                        <input
+                            id="totalAmount"
+                            type="number"
+                            class="form-control amount-field"
+                            value="0"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <!-- =================================================
+                         PAYMENT DATE
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="paymentDate"
+                            class="form-label"
+                        >
+
+                            Payment Date
+
+                        </label>
+
+
+                        <input
+                            id="paymentDate"
+                            type="date"
+                            class="form-control"
+                        >
+
+                    </div>
+
+
+                    <!-- =================================================
+                         BUTTONS
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                        >
+
+                            &nbsp;
+
+                        </label>
+
+
+                        <div class="payment-buttons">
+
+
+                            <button
+                                type="button"
+                                id="savePaymentBtn"
+                            >
+
+                                💾 Save Payment
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                id="cancelEditBtn"
+                                style="display:none;"
+                            >
+
+                                ❌ Cancel
+
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SUMMARY
+            ================================================== -->
+
+            <section class="payment-summary">
+
+                <div class="summary-row">
+
+
+                    <!-- MEMBER -->
+
+                    <div class="summary-box">
+
+                        <span class="summary-label">
+
+                            Selected Member
+
+                        </span>
+
+
+                        <strong
+                            id="summaryMember"
+                            class="summary-value"
+                        >
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+
+                    <!-- OLD BALANCE -->
+
+                    <div class="summary-box">
+
+                        <span class="summary-label">
+
+                            Old Balance
+
+                        </span>
+
+
+                        <strong
+                            id="summaryOldBalance"
+                            class="summary-value"
+                        >
+
+                            ₹0
+
+                        </strong>
+
+                    </div>
+
+
+                    <!-- TOTAL -->
+
+                    <div class="summary-box">
+
+                        <span class="summary-label">
+
+                            Total Amount
+
+                        </span>
+
+
+                        <strong
+                            id="summaryTotal"
+                            class="summary-value"
+                        >
+
+                            ₹0
+
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PAYMENT HISTORY
+            ================================================== -->
+
+            <section class="history-card">
+
+
+                <div class="history-header">
+
+                    <h5>
+
+                        📋 Payment History
+
+                    </h5>
+
+                </div>
+
+
+                <div class="table-responsive">
+
+                    <table
+                        class="payment-table"
+                    >
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    #
+                                </th>
+
+                                <th>
+                                    Member
+                                </th>
+
+                                <th>
+                                    Old Balance
+                                </th>
+
+                                <th>
+                                    Current Payment
+                                </th>
+
+                                <th>
+                                    Total Amount
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="paymentList">
+
+                            <tr>
+
+                                <td
+                                    colspan="7"
+                                    class="empty-message"
+                                >
+
+                                    Loading Payments...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 BACK DASHBOARD
+            ================================================== -->
+
+            <a
+                href="dashboard.html"
+                class="back-button"
+            >
+
+                ⬅️ Back Dashboard
+
+            </a>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         COMMON MENU JS
+    ====================================================== -->
+
+    <script src="js/menu.js"></script>
+
+
+    <!-- =====================================================
+         INSTALLMENTS JS
+    ====================================================== -->
+
+    <script
+        type="module"
+        src="js/installments.js"
+    ></script>
+
+
+    <!-- =====================================================
+         PAGE EVENTS
+    ====================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                /* =============================================
+                   CURRENT PAYMENT
+                ============================================= */
+
+                const paymentAmount =
+                    document.getElementById(
+                        "paymentAmount"
+                    );
+
+
+                if (paymentAmount) {
+
+                    paymentAmount.addEventListener(
+                        "input",
+                        function () {
+
+                            if (
+                                typeof window.calculateTotal ===
+                                "function"
+                            ) {
+
+                                window.calculateTotal();
+
+                            }
+
+                            updateInstallmentSummary();
+
+                        }
+                    );
+
+                }
+
+
+                /* =============================================
+                   MEMBER SELECT
+                ============================================= */
+
+                const memberSelect =
+                    document.getElementById(
+                        "memberSelect"
+                    );
+
+
+                if (memberSelect) {
+
+                    memberSelect.addEventListener(
+                        "change",
+                        function () {
+
+                            if (
+                                typeof window.loadOldBalance ===
+                                "function"
+                            ) {
+
+                                window.loadOldBalance();
+
+                            }
+
+                            updateInstallmentSummary();
+
+                        }
+                    );
+
+                }
+
+
+                /* =============================================
+                   SAVE BUTTON
+                ============================================= */
+
+                const saveButton =
+                    document.getElementById(
+                        "savePaymentBtn"
+                    );
+
+
+                if (saveButton) {
+
+                    saveButton.addEventListener(
+                        "click",
+                        function () {
+
+                            if (
+                                typeof window.addPayment ===
+                                "function"
+                            ) {
+
+                                window.addPayment();
+
+                            }
+
+                        }
+                    );
+
+                }
+
+
+                /* =============================================
+                   CANCEL BUTTON
+                ============================================= */
+
+                const cancelButton =
+                    document.getElementById(
+                        "cancelEditBtn"
+                    );
+
+
+                if (cancelButton) {
+
+                    cancelButton.addEventListener(
+                        "click",
+                        function () {
+
+                            if (
+                                typeof window.clearPaymentForm ===
+                                "function"
+                            ) {
+
+                                window.clearPaymentForm();
+
+                            }
+
+                            cancelButton.style.display =
+                                "none";
+
+                        }
+                    );
+
+                }
+
+
+                /* =============================================
+                   INITIAL SUMMARY
+                ============================================= */
+
+                updateInstallmentSummary();
+
+            });
+
+
+        /* =====================================================
+           UPDATE SUMMARY
+        ====================================================== */
+
+        function updateInstallmentSummary() {
+
+            const memberSelect =
+                document.getElementById(
+                    "memberSelect"
+                );
+
+
+            const oldBalance =
+                document.getElementById(
+                    "oldBalance"
+                );
+
+
+            const totalAmount =
+                document.getElementById(
+                    "totalAmount"
+                );
+
+
+            const summaryMember =
+                document.getElementById(
+                    "summaryMember"
+                );
+
+
+            const summaryOldBalance =
+                document.getElementById(
+                    "summaryOldBalance"
+                );
+
+
+            const summaryTotal =
+                document.getElementById(
+                    "summaryTotal"
+                );
+
+
+            if (summaryMember) {
+
+                if (
+                    memberSelect &&
+                    memberSelect.value
+                ) {
+
+                    const option =
+                        memberSelect.options[
+                            memberSelect.selectedIndex
+                        ];
+
+                    summaryMember.innerText =
+                        option
+                            ? option.textContent.trim()
+                            : "-";
+
+                }
+                else {
+
+                    summaryMember.innerText =
+                        "-";
+
+                }
+
+            }
+
+
+            if (summaryOldBalance) {
+
+                const oldValue =
+                    Number(
+                        oldBalance?.value
+                    ) || 0;
+
+                summaryOldBalance.innerText =
+                    formatMoney(oldValue);
+
+            }
+
+
+            if (summaryTotal) {
+
+                const totalValue =
+                    Number(
+                        totalAmount?.value
+                    ) || 0;
+
+                summaryTotal.innerText =
+                    formatMoney(totalValue);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MONEY FORMAT
+        ====================================================== */
+
+        function formatMoney(value) {
+
+            const number =
+                Number(value) || 0;
+
+            return (
+                "₹" +
+                number.toLocaleString(
+                    "en-IN",
+                    {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    }
+                )
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

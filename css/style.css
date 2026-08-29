@@ -1,0 +1,1093 @@
+/* =====================================================
+   PKV EAST CHIT
+   COMMON APPLICATION STYLE
+   USED FOR ALL PAGES
+===================================================== */
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+    background: #f5f6f8;
+    color: #212529;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.app-content {
+    width: calc(100% - 230px);
+
+    min-height: 100vh;
+
+    margin-left: 230px;
+
+    padding:
+        20px
+        22px
+        35px
+        22px;
+}
+
+
+/* =====================================================
+   PAGE CONTAINER
+===================================================== */
+
+.page-container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+.page-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+.page-title {
+    margin: 0;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    color: #212529;
+}
+
+
+.page-subtitle {
+    margin-top: 5px;
+
+    font-size: 13px;
+
+    color: #6c757d;
+}
+
+
+/* =====================================================
+   COMMON CARD
+===================================================== */
+
+.card,
+.app-card,
+.form-card,
+.table-card,
+.summary-card,
+.history-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.07);
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.form-card,
+.collection-card {
+    padding: 20px;
+}
+
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+.form-grid,
+.collection-form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 16px;
+}
+
+
+.form-group {
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* =====================================================
+   FORM LABEL
+===================================================== */
+
+.form-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #343a40;
+}
+
+
+/* =====================================================
+   INPUTS
+===================================================== */
+
+.form-control,
+.form-select {
+    display: block;
+
+    width: 100%;
+
+    min-height: 44px;
+
+    padding:
+        9px
+        12px;
+
+    background: #ffffff;
+
+    border:
+        1px solid
+        #ced4da;
+
+    border-radius: 6px;
+
+    outline: none;
+
+    color: #212529;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #86b7fe;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            13,
+            110,
+            253,
+            0.12
+        );
+}
+
+
+/* =====================================================
+   READ ONLY
+===================================================== */
+
+.form-control[readonly] {
+    background: #e9ecef;
+
+    cursor: not-allowed;
+}
+
+
+/* =====================================================
+   BUTTON ROW
+===================================================== */
+
+.button-row {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    min-height: 42px;
+
+    padding:
+        8px
+        15px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition:
+        opacity 0.2s,
+        transform 0.15s;
+}
+
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+
+/* =====================================================
+   BUTTON COLORS
+===================================================== */
+
+.btn-primary {
+    background: #0d6efd;
+    color: #ffffff;
+}
+
+
+.btn-success {
+    background: #198754;
+    color: #ffffff;
+}
+
+
+.btn-danger {
+    background: #dc3545;
+    color: #ffffff;
+}
+
+
+.btn-warning {
+    background: #ffc107;
+    color: #212529;
+}
+
+
+.btn-secondary {
+    background: #6c757d;
+    color: #ffffff;
+}
+
+
+.btn-dark {
+    background: #212529;
+    color: #ffffff;
+}
+
+
+.btn-info {
+    background: #0dcaf0;
+    color: #212529;
+}
+
+
+/* =====================================================
+   ALERT MESSAGES
+===================================================== */
+
+.error-box {
+    display: none;
+
+    padding: 12px;
+
+    margin-bottom: 15px;
+
+    background: #f8d7da;
+
+    border:
+        1px solid
+        #f5c2c7;
+
+    border-radius: 6px;
+
+    color: #842029;
+
+    font-size: 14px;
+}
+
+
+.success-box {
+    display: none;
+
+    padding: 12px;
+
+    margin-bottom: 15px;
+
+    background: #d1e7dd;
+
+    border:
+        1px solid
+        #badbcc;
+
+    border-radius: 6px;
+
+    color: #0f5132;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   SUMMARY CARDS
+===================================================== */
+
+.summary-card {
+    margin-top: 18px;
+
+    padding: 15px;
+}
+
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+}
+
+
+.summary-item {
+    padding:
+        10px
+        15px;
+
+    text-align: center;
+
+    border-right:
+        1px solid
+        #dee2e6;
+}
+
+
+.summary-item:last-child {
+    border-right: none;
+}
+
+
+.summary-label {
+    display: block;
+
+    font-size: 12px;
+
+    color: #6c757d;
+
+    margin-bottom: 5px;
+}
+
+
+.summary-value {
+    display: block;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #212529;
+}
+
+
+/* =====================================================
+   TABLE CARD
+===================================================== */
+
+.history-card,
+.table-card {
+    margin-top: 20px;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   CARD HEADER
+===================================================== */
+
+.card-header,
+.history-header {
+    padding:
+        13px
+        18px;
+
+    background: #212529;
+
+    color: #ffffff;
+}
+
+
+.card-header h5,
+.history-header h5 {
+    margin: 0;
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   RESPONSIVE TABLE
+===================================================== */
+
+.table-responsive {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+.app-table,
+.collection-table {
+    min-width: 900px;
+}
+
+
+.app-table th,
+.app-table td,
+.collection-table th,
+.collection-table td {
+    padding:
+        10px
+        12px;
+
+    border:
+        1px solid
+        #dee2e6;
+
+    white-space: nowrap;
+
+    vertical-align: middle;
+}
+
+
+.app-table th,
+.collection-table th {
+    background: #212529;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-align: left;
+}
+
+
+.app-table td,
+.collection-table td {
+    font-size: 13px;
+}
+
+
+.app-table tbody tr:hover,
+.collection-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
+
+.action-buttons {
+    display: flex;
+
+    gap: 6px;
+}
+
+
+.action-buttons .btn {
+    min-height: 34px;
+
+    padding:
+        5px
+        10px;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   EMPTY MESSAGE
+===================================================== */
+
+.empty-message {
+    padding: 30px !important;
+
+    text-align: center;
+
+    color: #6c757d;
+}
+
+
+/* =====================================================
+   BADGES
+===================================================== */
+
+.badge {
+    display: inline-block;
+
+    padding:
+        4px
+        9px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.badge-success {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+
+.badge-danger {
+    background: #f8d7da;
+    color: #842029;
+}
+
+
+.badge-warning {
+    background: #fff3cd;
+    color: #664d03;
+}
+
+
+.badge-info {
+    background: #cff4fc;
+    color: #055160;
+}
+
+
+/* =====================================================
+   COLLECTION / PAYMENT MODE
+===================================================== */
+
+.mode-badge {
+    display: inline-block;
+
+    padding:
+        4px
+        8px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.mode-cash {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+
+.mode-upi {
+    background: #cff4fc;
+    color: #055160;
+}
+
+
+.mode-bank {
+    background: #cfe2ff;
+    color: #084298;
+}
+
+
+.mode-other {
+    background: #e2e3e5;
+    color: #41464b;
+}
+
+
+/* =====================================================
+   MONEY INPUT BOXES
+===================================================== */
+
+.installment-box {
+    background: #fff3cd !important;
+
+    border-color: #ffca2c !important;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: #664d03;
+}
+
+
+.remaining-box {
+    background: #d1e7dd !important;
+
+    border-color: #75b798 !important;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: #0f5132;
+}
+
+
+.remaining-box.pending {
+    background: #f8d7da !important;
+
+    border-color: #ea868f !important;
+
+    color: #842029;
+}
+
+
+.remaining-box.paid {
+    background: #d1e7dd !important;
+
+    border-color: #75b798 !important;
+
+    color: #0f5132;
+}
+
+
+.installment-info {
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    color: #6c757d;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .app-content {
+        width: 100%;
+
+        margin-left: 0;
+
+        padding: 15px 12px 30px;
+    }
+
+
+    .page-container {
+        max-width: 100%;
+    }
+
+
+    .page-header {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .page-title {
+        font-size: 22px;
+
+        text-align: center;
+    }
+
+
+    .form-grid,
+    .collection-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .summary-item {
+        border-right: none;
+
+        border-bottom:
+            1px solid
+            #dee2e6;
+
+        padding:
+            12px;
+    }
+
+
+    .summary-item:last-child {
+        border-bottom: none;
+    }
+
+
+    .button-row {
+        flex-direction: column;
+    }
+
+
+    .button-row .btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 576px) {
+
+    .app-content {
+        padding: 10px 8px 25px;
+    }
+
+
+    .form-card,
+    .collection-card {
+        padding: 14px;
+
+        border-radius: 8px;
+    }
+
+
+    .summary-card {
+        padding: 10px;
+    }
+
+
+    .form-label {
+        font-size: 12px;
+    }
+
+
+    .form-control,
+    .form-select {
+        min-height: 43px;
+
+        font-size: 14px;
+    }
+
+}
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.dashboard-header {
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.07);
+
+}
+
+
+.dashboard-header h2 {
+
+    margin: 0;
+
+    font-size: 26px;
+
+    font-weight: 700;
+
+    color: #212529;
+
+}
+
+
+.dashboard-header p {
+
+    margin:
+        7px
+        0
+        0;
+
+    color: #6c757d;
+
+    font-size: 15px;
+
+}
+
+
+/* =====================================================
+   DASHBOARD CARD
+===================================================== */
+
+.dashboard-card {
+
+    width: 100%;
+
+    min-height: 150px;
+
+    padding:
+        22px
+        18px;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.07);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+
+}
+
+
+.dashboard-card:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 6px 18px
+        rgba(0, 0, 0, 0.12);
+
+}
+
+
+/* =====================================================
+   DASHBOARD CARD TITLE
+===================================================== */
+
+.dashboard-card-title {
+
+    margin-bottom: 12px;
+
+    color: #6c757d;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   NORMAL VALUE
+===================================================== */
+
+.dashboard-card-value {
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: #212529;
+
+}
+
+
+/* =====================================================
+   LARGE CARD
+===================================================== */
+
+.dashboard-card-large {
+
+    min-height: 165px;
+
+}
+
+
+/* =====================================================
+   BIG VALUE
+===================================================== */
+
+.dashboard-card-big-value {
+
+    font-size: 40px;
+
+    font-weight: 700;
+
+    color: #212529;
+
+}
+
+
+/* =====================================================
+   FINAL TOTAL CARD
+===================================================== */
+
+.dashboard-final-card {
+
+    background: #198754;
+
+}
+
+
+.dashboard-final-card
+.dashboard-card-title,
+
+.dashboard-final-card
+.dashboard-card-big-value {
+
+    color: #ffffff;
+
+}
+
+
+/* =====================================================
+   DASHBOARD MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .dashboard-header {
+
+        padding: 16px;
+
+        text-align: center;
+
+    }
+
+
+    .dashboard-header h2 {
+
+        font-size: 22px;
+
+    }
+
+
+    .dashboard-card {
+
+        min-height: 130px;
+
+        padding:
+            18px
+            10px;
+
+    }
+
+
+    .dashboard-card-title {
+
+        font-size: 13px;
+
+    }
+
+
+    .dashboard-card-value {
+
+        font-size: 27px;
+
+    }
+
+
+    .dashboard-card-big-value {
+
+        font-size: 32px;
+
+    }
+
+}

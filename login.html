@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login - PKV EAST CHIT</title>
+
+
+    <style>
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0d6efd 0%,
+                    #212529 100%
+                );
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+        }
+
+
+        /* =====================================================
+           LOGIN CONTAINER
+        ===================================================== */
+
+        .login-container {
+
+            width: 100%;
+
+            max-width: 420px;
+
+            padding: 20px;
+
+        }
+
+
+        /* =====================================================
+           LOGIN CARD
+        ===================================================== */
+
+        .login-card {
+
+            width: 100%;
+
+            background: #ffffff;
+
+            padding: 35px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 0, 0, 0.25);
+
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo {
+
+            width: 80px;
+
+            height: 80px;
+
+            margin:
+                0 auto 18px;
+
+            border-radius: 50%;
+
+            background: #0d6efd;
+
+            color: #ffffff;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 5px 15px
+                rgba(13, 110, 253, 0.35);
+
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .title {
+
+            text-align: center;
+
+            margin: 0;
+
+            font-size: 27px;
+
+            font-weight: 700;
+
+            color: #212529;
+
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            margin-top: 8px;
+
+            margin-bottom: 30px;
+
+            color: #6c757d;
+
+            font-size: 15px;
+
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-group {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .form-label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-weight: 600;
+
+            color: #212529;
+
+        }
+
+
+        .form-control {
+
+            width: 100%;
+
+            height: 48px;
+
+            padding:
+                10px 14px;
+
+            border:
+                1px solid #ced4da;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s,
+                box-shadow 0.2s;
+
+        }
+
+
+        .form-control:focus {
+
+            border-color: #0d6efd;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(13, 110, 253, 0.15);
+
+        }
+
+
+        /* =====================================================
+           LOGIN BUTTON
+        ===================================================== */
+
+        .login-button {
+
+            width: 100%;
+
+            height: 50px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #0d6efd;
+
+            color: #ffffff;
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s,
+                transform 0.1s;
+
+        }
+
+
+        .login-button:hover {
+
+            background: #0b5ed7;
+
+        }
+
+
+        .login-button:active {
+
+            transform: scale(0.99);
+
+        }
+
+
+        .login-button:disabled {
+
+            opacity: 0.7;
+
+            cursor: not-allowed;
+
+        }
+
+
+        /* =====================================================
+           ERROR
+        ===================================================== */
+
+        .error-message {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 12px;
+
+            border-radius: 7px;
+
+            background: #f8d7da;
+
+            border:
+                1px solid #f5c2c7;
+
+            color: #842029;
+
+            font-size: 14px;
+
+            text-align: center;
+
+        }
+
+
+        /* =====================================================
+           LOGIN DETAILS
+        ===================================================== */
+
+        .login-details {
+
+            margin-top: 25px;
+
+            padding: 15px;
+
+            border:
+                1px solid #dee2e6;
+
+            border-radius: 8px;
+
+            background: #f8f9fa;
+
+            font-size: 14px;
+
+            color: #495057;
+
+        }
+
+
+        .login-details-title {
+
+            margin-bottom: 8px;
+
+            font-weight: 600;
+
+            color: #212529;
+
+        }
+
+
+        .login-details strong {
+
+            color: #212529;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+
+            margin-top: 20px;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            color: #6c757d;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 480px) {
+
+            .login-container {
+
+                padding: 15px;
+
+            }
+
+
+            .login-card {
+
+                padding: 25px 20px;
+
+            }
+
+
+            .title {
+
+                font-size: 23px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-container">
+
+
+    <div class="login-card">
+
+
+        <!-- =================================================
+             LOGO
+        ================================================== -->
+
+        <div class="logo">
+
+            PKV
+
+        </div>
+
+
+        <!-- =================================================
+             TITLE
+        ================================================== -->
+
+        <h1 class="title">
+
+            PKV EAST CHIT
+
+        </h1>
+
+
+        <p class="subtitle">
+
+            Chit Account Manager
+
+        </p>
+
+
+        <!-- =================================================
+             LOGIN FORM
+        ================================================== -->
+
+        <form
+            id="loginForm"
+            autocomplete="off"
+        >
+
+
+            <!-- LOGIN ID -->
+
+            <div class="form-group">
+
+                <label
+                    class="form-label"
+                    for="loginId"
+                >
+
+                    Login ID
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="loginId"
+                    class="form-control"
+                    placeholder="Enter Login ID"
+                    autocomplete="username"
+                    required
+                >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+                <label
+                    class="form-label"
+                    for="password"
+                >
+
+                    Password
+
+                </label>
+
+
+                <input
+                    type="password"
+                    id="password"
+                    class="form-control"
+                    placeholder="Enter Password"
+                    autocomplete="current-password"
+                    required
+                >
+
+            </div>
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+                type="submit"
+                id="loginButton"
+                class="login-button"
+            >
+
+                🔐 Login
+
+            </button>
+
+
+            <!-- ERROR -->
+
+            <div
+                id="errorMessage"
+                class="error-message"
+            >
+
+                Invalid Login ID or Password.
+
+            </div>
+
+
+        </form>
+
+
+        <!-- =================================================
+             DEMO LOGIN
+        ================================================== -->
+
+        <div class="login-details">
+
+            <div class="login-details-title">
+
+                Demo Login
+
+            </div>
+
+
+            <div>
+
+                <strong>Login ID:</strong>
+
+                admin
+
+            </div>
+
+
+            <div>
+
+                <strong>Password:</strong>
+
+                admin123
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <div class="footer">
+
+            PKV EAST CHIT<br>
+
+            Chit Account Management System
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+    // =====================================================
+    // LOGIN CONFIGURATION
+    // =====================================================
+
+    const VALID_LOGIN_ID = "admin";
+
+    const VALID_PASSWORD = "admin123";
+
+
+    // =====================================================
+    // GET ELEMENTS
+    // =====================================================
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+
+    const loginIdInput =
+        document.getElementById("loginId");
+
+
+    const passwordInput =
+        document.getElementById("password");
+
+
+    const loginButton =
+        document.getElementById("loginButton");
+
+
+    const errorMessage =
+        document.getElementById("errorMessage");
+
+
+    // =====================================================
+    // LOGIN FUNCTION
+    // =====================================================
+
+    loginForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            // Get values
+
+            const enteredLoginId =
+                loginIdInput.value.trim();
+
+
+            const enteredPassword =
+                passwordInput.value;
+
+
+            // Hide previous error
+
+            errorMessage.style.display =
+                "none";
+
+
+            // =================================================
+            // CHECK LOGIN
+            // =================================================
+
+            if (
+                enteredLoginId === VALID_LOGIN_ID &&
+                enteredPassword === VALID_PASSWORD
+            ) {
+
+
+                // =============================================
+                // SAVE LOGIN SESSION
+                // =============================================
+
+                sessionStorage.setItem(
+                    "pkvLoggedIn",
+                    "true"
+                );
+
+
+                sessionStorage.setItem(
+                    "pkvLoginId",
+                    enteredLoginId
+                );
+
+
+                // =============================================
+                // BUTTON STATUS
+                // =============================================
+
+                loginButton.disabled = true;
+
+                loginButton.textContent =
+                    "Opening Dashboard...";
+
+
+                // =============================================
+                // REDIRECT
+                // IMPORTANT:
+                // YOUR DASHBOARD FILE IS dashboard.html
+                // =============================================
+
+                window.location.replace(
+                    "dashboard.html"
+                );
+
+
+            } else {
+
+
+                // =============================================
+                // INVALID LOGIN
+                // =============================================
+
+                errorMessage.textContent =
+                    "Invalid Login ID or Password.";
+
+
+                errorMessage.style.display =
+                    "block";
+
+
+                passwordInput.value = "";
+
+                passwordInput.focus();
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

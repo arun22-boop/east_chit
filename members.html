@@ -1,0 +1,893 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>
+        Members - PKV EAST CHIT
+    </title>
+
+
+    <!-- =========================================
+         BOOTSTRAP
+    ========================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================
+         COMMON MAIN CSS
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- =========================================
+         COMMON MENU CSS
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/menu.css"
+    >
+
+    <link rel="icon" href="data:,">
+
+    <!-- =========================================
+         PAGE STYLE
+    ========================================== -->
+
+    <style>
+
+        /* =====================================
+           BODY
+        ====================================== */
+
+        html,
+        body {
+
+            margin: 0;
+
+            padding: 0;
+
+            width: 100%;
+
+            min-height: 100%;
+
+            background: #f4f6f9;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            overflow-x: hidden;
+
+        }
+
+
+        /* =====================================
+           APP CONTENT
+        ====================================== */
+
+        .app-content {
+
+            min-height: 100vh;
+
+            padding: 25px;
+
+        }
+
+
+        /* =====================================
+           PAGE CONTAINER
+        ====================================== */
+
+        .page-container {
+
+            width: 100%;
+
+            max-width: 1400px;
+
+            margin: auto;
+
+        }
+
+
+        /* =====================================
+           PAGE HEADER
+        ====================================== */
+
+        .page-header {
+
+            background: white;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+
+                0 2px 8px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.08
+                );
+
+        }
+
+
+        .page-header h2 {
+
+            margin: 0;
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            color: #212529;
+
+        }
+
+
+        .page-header p {
+
+            margin:
+                8px
+                0
+                0;
+
+            color: #6c757d;
+
+            font-size: 16px;
+
+        }
+
+
+        /* =====================================
+           CARDS
+        ====================================== */
+
+        .card {
+
+            border: none;
+
+            border-radius: 12px;
+
+            box-shadow:
+
+                0 2px 8px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.08
+                );
+
+        }
+
+
+        .card:hover {
+
+            box-shadow:
+
+                0 5px 15px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.12
+                );
+
+        }
+
+
+        /* =====================================
+           SECTION TITLE
+        ====================================== */
+
+        .section-title {
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        /* =====================================
+           FORM
+        ====================================== */
+
+        label {
+
+            font-weight: 600;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .form-control,
+        .form-select {
+
+            min-height: 45px;
+
+            border-radius: 8px;
+
+        }
+
+
+        textarea.form-control {
+
+            min-height: auto;
+
+        }
+
+
+        .form-control:focus,
+        .form-select:focus {
+
+            border-color: #0d6efd;
+
+            box-shadow:
+
+                0 0 0 0.2rem
+                rgba(
+                    13,
+                    110,
+                    253,
+                    0.15
+                );
+
+        }
+
+
+        /* =====================================
+           WITNESS SELECT
+        ====================================== */
+
+        #witnessSelect {
+
+            min-height: 160px;
+
+        }
+
+
+        /* =====================================
+           SELECTED WITNESS LIST
+        ====================================== */
+
+        #witnessList {
+
+            border-radius: 8px;
+
+            overflow: hidden;
+
+        }
+
+
+        #witnessList:empty {
+
+            display: none;
+
+        }
+
+
+        /* =====================================
+           BUTTONS
+        ====================================== */
+
+        .btn {
+
+            border-radius: 8px;
+
+            min-height: 42px;
+
+        }
+
+
+        /* =====================================
+           TABLE
+        ====================================== */
+
+        .table-responsive {
+
+            width: 100%;
+
+            overflow-x: auto;
+
+            -webkit-overflow-scrolling: touch;
+
+        }
+
+
+        .table {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .table th {
+
+            vertical-align: middle;
+
+            text-align: center;
+
+            white-space: nowrap;
+
+        }
+
+
+        .table td {
+
+            vertical-align: middle;
+
+            text-align: center;
+
+            white-space: nowrap;
+
+        }
+
+
+        .table-dark th {
+
+            background: #212529;
+
+        }
+
+
+        /* =====================================
+           MOBILE
+        ====================================== */
+
+        @media (
+            max-width: 768px
+        ) {
+
+            .app-content {
+
+                padding:
+
+                    15px
+                    10px
+                    40px;
+
+            }
+
+
+            .page-header {
+
+                padding: 16px;
+
+                margin-bottom: 20px;
+
+            }
+
+
+            .page-header h2 {
+
+                font-size: 22px;
+
+            }
+
+
+            .page-header p {
+
+                font-size: 14px;
+
+            }
+
+
+            .card {
+
+                border-radius: 10px;
+
+            }
+
+
+            .section-title {
+
+                font-size: 18px;
+
+            }
+
+
+            .table {
+
+                font-size: 13px;
+
+            }
+
+
+            .btn {
+
+                width: 100%;
+
+                margin-bottom: 8px;
+
+            }
+
+
+            #witnessSelect {
+
+                min-height: 140px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         COMMON MENU
+    ========================================== -->
+
+    <div id="appMenu"></div>
+
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <div class="app-content">
+
+        <div class="page-container">
+
+
+            <!-- =====================================
+                 PAGE HEADER
+            ====================================== -->
+
+            <div class="page-header">
+
+                <h2>
+
+                    👤 Member Management
+
+                </h2>
+
+
+                <p>
+
+                    Add and manage PKV EAST CHIT members
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 ADD / EDIT MEMBER
+            ====================================== -->
+
+            <div
+                class="
+                    card
+                    shadow-sm
+                    p-4
+                    mb-4
+                "
+            >
+
+
+                <h5
+                    class="section-title"
+                >
+
+                    ➕ Add New Member
+
+                </h5>
+
+
+
+                <!-- =================================
+                     MEMBER NAME
+                ================================== -->
+
+                <div class="mb-3">
+
+                    <label
+                        for="memberName"
+                        class="form-label"
+                    >
+
+                        Member Name
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="memberName"
+                        class="form-control"
+                        placeholder="Enter Member Name"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+
+                <!-- =================================
+                     MOBILE NUMBER
+                ================================== -->
+
+                <div class="mb-3">
+
+                    <label
+                        for="mobile"
+                        class="form-label"
+                    >
+
+                        Mobile Number
+
+                    </label>
+
+
+                    <input
+                        type="tel"
+                        id="mobile"
+                        class="form-control"
+                        placeholder="Enter Mobile Number"
+                        autocomplete="tel"
+                        inputmode="numeric"
+                    >
+
+                </div>
+
+
+
+                <!-- =================================
+                     ADDRESS
+                ================================== -->
+
+                <div class="mb-3">
+
+                    <label
+                        for="address"
+                        class="form-label"
+                    >
+
+                        Address
+
+                    </label>
+
+
+                    <textarea
+                        id="address"
+                        class="form-control"
+                        placeholder="Enter Address"
+                        rows="3"
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- =================================
+                     JOIN DATE
+                ================================== -->
+
+                <div class="mb-4">
+
+                    <label
+                        for="joinDate"
+                        class="form-label"
+                    >
+
+                        Join Date
+
+                    </label>
+
+
+                    <input
+                        id="joinDate"
+                        type="date"
+                        class="form-control"
+                    >
+
+                </div>
+
+
+
+                <!-- =================================
+                     WITNESS DETAILS
+                ================================== -->
+
+                <div class="border-top pt-4">
+
+                    <h5
+                        class="section-title"
+                    >
+
+                        👥 Witness Details
+
+                    </h5>
+
+
+                    <!-- WITNESS SELECT -->
+
+                    <div class="mb-3">
+
+                        <label
+                            for="witnessSelect"
+                            class="form-label"
+                        >
+
+                            Select Witness
+
+                        </label>
+
+
+                        <select
+                            id="witnessSelect"
+                            class="form-select"
+                            size="5"
+                        >
+
+                            <option value="">
+
+                                Select Witness
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- ADD WITNESS BUTTON -->
+
+                    <button
+                        type="button"
+                        onclick="addWitness()"
+                        class="
+                            btn
+                            btn-info
+                            mb-3
+                        "
+                    >
+
+                        ➕ Add Witness
+
+                    </button>
+
+
+
+                    <!-- SELECTED WITNESSES -->
+
+                    <ul
+                        id="witnessList"
+                        class="
+                            list-group
+                            mb-4
+                        "
+                    ></ul>
+
+                </div>
+
+
+
+                <!-- =================================
+                     SAVE MEMBER
+                ================================== -->
+
+                <div
+                    class="
+                        d-flex
+                        flex-column
+                        flex-md-row
+                        gap-2
+                    "
+                >
+
+                    <button
+                        type="button"
+                        onclick="addMember()"
+                        id="saveBtn"
+                        class="
+                            btn
+                            btn-success
+                        "
+                    >
+
+                        ➕ Add Member
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================================
+                 MEMBER LIST
+            ====================================== -->
+
+            <div
+                class="
+                    card
+                    shadow-sm
+                    p-3
+                "
+            >
+
+
+                <h5
+                    class="
+                        section-title
+                        mb-3
+                    "
+                >
+
+                    📋 Member List
+
+                </h5>
+
+
+
+                <div
+                    class="table-responsive"
+                >
+
+                    <table
+                        class="
+                            table
+                            table-bordered
+                            table-hover
+                            align-middle
+                            mb-0
+                        "
+                    >
+
+                        <thead
+                            class="table-dark"
+                        >
+
+                            <tr>
+
+                                <th>
+
+                                    Name
+
+                                </th>
+
+
+                                <th>
+
+                                    Mobile
+
+                                </th>
+
+
+                                <th>
+
+                                    Witness
+
+                                </th>
+
+
+                                <th>
+
+                                    Action
+
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="memberList"
+                        >
+
+                            <tr>
+
+                                <td
+                                    colspan="4"
+                                    class="
+                                        text-center
+                                        text-muted
+                                    "
+                                >
+
+                                    🔥 Loading Members...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================================
+                 BACK DASHBOARD
+            ====================================== -->
+
+            <div class="mt-4">
+
+                <a
+                    href="dashboard.html"
+                    class="
+                        btn
+                        btn-dark
+                    "
+                >
+
+                    ⬅️ Back Dashboard
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         COMMON MENU JS
+    ========================================== -->
+
+    <script
+        type="module"
+        src="js/menu.js"
+    ></script>
+
+
+
+    <!-- =========================================
+         MEMBERS JS
+    ========================================== -->
+
+    <script
+        type="module"
+        src="js/members.js"
+    ></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PKV EAST CHIT - Dashboard</title>
+
+    <script>
+        if (sessionStorage.getItem("pkvLoggedIn") !== "true") {
+            window.location.replace("login.html");
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h1>PKV EAST CHIT</h1>
+
+    <h2>Dashboard</h2>
+
+    <p>Welcome Admin</p>
+
+    <button onclick="logout()">
+        Logout
+    </button>
+
+    <script>
+        function logout() {
+
+            sessionStorage.removeItem("pkvLoggedIn");
+            sessionStorage.removeItem("pkvLoginId");
+
+            window.location.replace("login.html");
+        }
+    </script>
+
+</body>
+
+</html>
