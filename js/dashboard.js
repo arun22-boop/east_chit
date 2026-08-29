@@ -446,8 +446,8 @@ function updateDashboard() {
     const cashInHand =
         totalCollection +
         totalCommission -
-        pendingAmount -
-        totalExpense;
+        totalExpense -
+        pendingAmount;
 
 
     // -----------------------------------------------
