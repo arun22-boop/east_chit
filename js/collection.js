@@ -152,6 +152,57 @@ const collectionSuccess =
     );
 
 
+const COLLECTIONS_SHEETS_URL =
+  "https://script.google.com/macros/s/AKfycbz_4nHJGwZar_cWwXJItX22EKOl9oeGs07vmvPvsywFEce9pBjdkVAkqGVoKrSmJ6Gu/exec";
+
+async function syncCollectionsToGoogleSheets() {
+  try {
+    const snapshot = await getDocs(collection(db, "collections"));
+
+    const records = snapshot.docs.map((document) => {
+      const data = document.data();
+
+      return {
+        id: document.id,
+        memberId: data.memberId ?? "",
+        groupId: data.groupId ?? "",
+        installmentAmount: data.installmentAmount ?? 0,
+        collectionAmount: data.collectionAmount ?? 0,
+        remainingAmount: data.remainingAmount ?? 0,
+        paymentMode: data.paymentMode ?? "",
+        date: data.date ?? "",
+        remarks: data.remarks ?? "",
+        createdAt: data.createdAt?.toDate
+          ? data.createdAt.toDate().toISOString()
+          : "",
+        updatedAt: data.updatedAt?.toDate
+          ? data.updatedAt.toDate().toISOString()
+          : ""
+      };
+    });
+
+    await fetch(COLLECTIONS_SHEETS_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify({
+        action: "syncCollections",
+        data: {
+          Collections: records
+        }
+      })
+    });
+
+    console.info(
+      "Collections sync request sent. Verify the Google Sheet."
+    );
+  } catch (error) {
+    console.error("Collections sync request failed:", error);
+  }
+}
+
 // =====================================================
 // GET FIELD HELPER
 // =====================================================

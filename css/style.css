@@ -1091,3 +1091,19 @@ table {
     }
 
 }
+
+
+#syncButton,
+#syncInfo {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#syncButton {
+    display: block;
+}
+
+#syncInfo {
+    text-align: center;
+    width: 100%;
+}
